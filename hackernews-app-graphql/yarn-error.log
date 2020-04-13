@@ -1,0 +1,58 @@
+Arguments: 
+  /usr/local/Cellar/node/13.10.1/bin/node /Users/sebastianhiguita/.yarn/bin/yarn.js add apollo-data-source-rest apollo-server express
+
+PATH: 
+  /Users/sebastianhiguita/.yarn/bin:/Users/sebastianhiguita/.config/yarn/global/node_modules/.bin:/Users/sebastianhiguita/flutter/bin:/Users/sebastianhiguita/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/sebastianhiguita/.yarn/bin:/Users/sebastianhiguita/.config/yarn/global/node_modules/.bin:/Users/sebastianhiguita/.sdkman/candidates/micronaut/current/bin:/Users/sebastianhiguita/flutter/bin:/Users/sebastianhiguita/.cargo/bin:/Users/sebastianhiguita/anaconda3/bin:/Users/sebastianhiguita/Library/Android/sdk/tools:/Users/sebastianhiguita/Library/Android/sdk/platform-tool:/usr/local/mysql/bin:/Users/sebastianhiguita/anaconda3/bin:/Users/sebastianhiguita/Library/Android/sdk/tools:/Users/sebastianhiguita/Library/Android/sdk/platform-tool:/usr/local/mysql/bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  13.10.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/apollo-data-source-rest: Not found
+      at Request.params.callback [as _callback] (/Users/sebastianhiguita/.yarn/lib/cli.js:66947:18)
+      at Request.self.callback (/Users/sebastianhiguita/.yarn/lib/cli.js:140665:22)
+      at Request.emit (events.js:316:20)
+      at Request.<anonymous> (/Users/sebastianhiguita/.yarn/lib/cli.js:141637:10)
+      at Request.emit (events.js:316:20)
+      at IncomingMessage.<anonymous> (/Users/sebastianhiguita/.yarn/lib/cli.js:141559:12)
+      at Object.onceWrapper (events.js:422:28)
+      at IncomingMessage.emit (events.js:328:22)
+      at endReadableNT (_stream_readable.js:1201:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  {
+    "name": "hackernews-app-graphql",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+      "start": "nodemon --exec babel-node server.js",
+      "test": "jest"
+    },
+    "jest": {
+      "coverageThreshold": {
+        "global": {
+          "branches": 90,
+          "functions": 90,
+          "lines": 90,
+          "statements": 90
+        }
+      },
+      "coverageReporters": [
+        "html",
+        "text"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
