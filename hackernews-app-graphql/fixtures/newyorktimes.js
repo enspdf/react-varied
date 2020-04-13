@@ -4,12 +4,12 @@ export const emptyReducerReturnValue = {
   author: undefined,
   url: undefined,
   time: undefined,
-  source: undefined,
+  source: "New York Times",
 };
 
 export const getArticlePreReducerStub = {
   id: "100000007083418",
-  title: "hernobyl Wildfires Reignite, Stirring Up Radiation",
+  title: "Chernobyl Wildfires Reignite, Stirring Up Radiation",
   url:
     "https://www.nytimes.com/2020/04/11/world/europe/chernobyl-wildfire.html",
   adx_keywords:

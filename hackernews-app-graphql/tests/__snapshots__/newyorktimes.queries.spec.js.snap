@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Queries.NewYorkTimesAPI] fetches an array of articles from the New York Tims API 1`] = `
+Object {
+  "data": Object {
+    "allArticlesBySource": Array [
+      Object {
+        "author": "By Maria Varenikova",
+        "id": "nyt-100000007083418",
+        "source": "New York Times",
+        "time": "2020-04-11",
+        "title": "Chernobyl Wildfires Reignite, Stirring Up Radiation",
+        "url": "https://www.nytimes.com/2020/04/11/world/europe/chernobyl-wildfire.html",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
