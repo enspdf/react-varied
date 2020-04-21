@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaPizzaSlice } from "react-icons/fa";
+import PropTypes from "prop-types";
 import { AddTask } from "../AddTask";
 
 export const Header = ({ darkMode, setDarkMode }) => {
@@ -14,8 +15,9 @@ export const Header = ({ darkMode, setDarkMode }) => {
         </div>
         <div className="settings">
           <ul>
-            <li data-testid="quick-add-task-action" className="settings__add">
+            <li className="settings__add">
               <button
+                data-testid="quick-add-task-action"
                 aria-label="Quick add task"
                 type="button"
                 onClick={() => {
@@ -30,8 +32,9 @@ export const Header = ({ darkMode, setDarkMode }) => {
                 +
               </button>
             </li>
-            <li data-testid="darl-mode-action" className="settings__darkmode">
+            <li className="settings__darkmode">
               <button
+                data-testid="dark-mode-action"
                 aria-label="Darkmode on/off"
                 type="button"
                 onClick={() => setDarkMode(!darkMode)}
@@ -43,6 +46,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
           </ul>
         </div>
       </nav>
+
       <AddTask
         showAddTaskMain={false}
         shouldShowMain={shouldShowMain}
@@ -51,4 +55,9 @@ export const Header = ({ darkMode, setDarkMode }) => {
       />
     </header>
   );
+};
+
+Header.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  setDarkMode: PropTypes.func.isRequired,
 };

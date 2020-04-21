@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { firebase } from "../firebase";
 import { generatePushId } from "../helpers";
 import { useProjectsValue } from "../context";
@@ -18,7 +19,7 @@ export const AddProject = ({ shouldShow = false }) => {
       .add({
         projectId,
         name: projectName,
-        userId: "796e2cb70ef2",
+        userId: "jlIFXIwyAL3tzHMtzRbw",
       })
       .then(() => {
         setProjects([...projects]);
@@ -29,7 +30,7 @@ export const AddProject = ({ shouldShow = false }) => {
   return (
     <div className="add-project" data-testid="add-project">
       {show && (
-        <div className="add-project__input">
+        <div className="add-project__input" data-testid="add-project-inner">
           <input
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
@@ -61,7 +62,7 @@ export const AddProject = ({ shouldShow = false }) => {
       )}
       <span className="add-project__plus">+</span>
       <span
-        aria-label="Add project"
+        aria-label="Add Project"
         data-testid="add-project-action"
         className="add-project__text"
         onClick={() => setShow(!show)}
@@ -73,4 +74,8 @@ export const AddProject = ({ shouldShow = false }) => {
       </span>
     </div>
   );
+};
+
+AddProject.propTypes = {
+  shouldShow: PropTypes.bool,
 };

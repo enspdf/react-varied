@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaRegListAlt, FaRegCalendarAlt } from "react-icons/fa";
 import moment from "moment";
+import PropTypes from "prop-types";
 import { firebase } from "../firebase";
 import { useSelectedProjectValue } from "../context";
 import { ProjectOverlay } from "./ProjectOverlay";
@@ -8,14 +9,14 @@ import { TaskDate } from "./TaskDate";
 
 export const AddTask = ({
   showAddTaskMain = true,
-  showShowMain = false,
+  shouldShowMain = false,
   showQuickAddTask,
   setShowQuickAddTask,
 }) => {
   const [task, setTask] = useState("");
   const [taskDate, setTaskDate] = useState("");
   const [project, setProject] = useState("");
-  const [showMain, setShowMain] = useState(showShowMain);
+  const [showMain, setShowMain] = useState(shouldShowMain);
   const [showProjectOverlay, setShowProjectOverlay] = useState(false);
   const [showTaskDate, setShowTaskDate] = useState(false);
 
@@ -42,7 +43,7 @@ export const AddTask = ({
           projectId,
           task,
           date: collatedDate || taskDate,
-          userId: "796e2cb70ef2",
+          userId: "jlIFXIwyAL3tzHMtzRbw",
         })
         .then(() => {
           setTask("");
@@ -64,9 +65,9 @@ export const AddTask = ({
           data-testid="show-main-action"
           onClick={() => setShowMain(!showMain)}
           onKeyDown={() => setShowMain(!showMain)}
-          role="button"
           tabIndex={0}
           aria-label="Add task"
+          role="button"
         >
           <span className="add-task__plus">+</span>
           <span className="add-task__text">Add Task</span>
@@ -115,7 +116,7 @@ export const AddTask = ({
             className="add-task__content"
             aria-label="Enter your task"
             data-testid="add-task-content"
-            type="test"
+            type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
@@ -139,7 +140,7 @@ export const AddTask = ({
                 setShowMain(false);
                 setShowProjectOverlay(false);
               }}
-              onKeyPress={() => {
+              onKeyDown={() => {
                 setShowMain(false);
                 setShowProjectOverlay(false);
               }}
@@ -174,4 +175,11 @@ export const AddTask = ({
       )}
     </div>
   );
+};
+
+AddTask.propTypes = {
+  showAddTaskMain: PropTypes.bool,
+  shouldShowMain: PropTypes.bool,
+  showQuickAddTask: PropTypes.bool,
+  setShowQuickAddTask: PropTypes.func,
 };

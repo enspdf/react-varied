@@ -5,8 +5,8 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
-import { useSelectedProjectValue } from "../../context";
 import { Projects } from "../Projects";
+import { useSelectedProjectValue } from "../../context";
 import { AddProject } from "../AddProject";
 
 export const Sidebar = () => {
@@ -22,6 +22,7 @@ export const Sidebar = () => {
           className={active === "inbox" ? "active" : undefined}
         >
           <div
+            data-testid="inbox-action"
             aria-label="Show inbox tasks"
             tabIndex={0}
             role="button"
@@ -45,6 +46,7 @@ export const Sidebar = () => {
           className={active === "today" ? "active" : undefined}
         >
           <div
+            data-testid="today-action"
             aria-label="Show today's tasks"
             tabIndex={0}
             role="button"
@@ -68,6 +70,7 @@ export const Sidebar = () => {
           className={active === "next_7" ? "active" : undefined}
         >
           <div
+            data-testid="next_7-action"
             aria-label="Show tasks for the next 7 days"
             tabIndex={0}
             role="button"
@@ -83,7 +86,7 @@ export const Sidebar = () => {
             <span>
               <FaRegCalendarAlt />
             </span>
-            <span>Next 8 days</span>
+            <span>Next 7 days</span>
           </div>
         </li>
       </ul>
@@ -92,8 +95,8 @@ export const Sidebar = () => {
         aria-label="Show/hide projects"
         onClick={() => setShowProjects(!showProjects)}
         onKeyDown={() => setShowProjects(!showProjects)}
-        tabIndex={0}
         role="button"
+        tabIndex={0}
       >
         <span>
           <FaChevronDown
@@ -102,7 +105,9 @@ export const Sidebar = () => {
         </span>
         <h2>Projects</h2>
       </div>
+
       <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+
       {showProjects && <AddProject />}
     </div>
   );

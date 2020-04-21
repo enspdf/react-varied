@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useSelectedProjectValue, useProjectsValue } from "../context";
 import { IndividualProject } from "./IndividualProject";
 
-export const Projects = ({ activeValue = true }) => {
+export const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue);
   const { setSelectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
@@ -11,9 +12,9 @@ export const Projects = ({ activeValue = true }) => {
     projects &&
     projects.map((project) => (
       <li
-        key={project.docId}
+        key={project.projectId}
+        data-testid="project-action-parent"
         data-doc-id={project.docId}
-        data-testid="project-action"
         className={
           active === project.projectId
             ? "active sidebar__project"
@@ -22,13 +23,14 @@ export const Projects = ({ activeValue = true }) => {
       >
         <div
           role="button"
+          data-testid="project-action"
           tabIndex={0}
           aria-label={`Select ${project.name} as the task project`}
-          onKeyDown={() => {
+          onClick={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
           }}
-          onClick={() => {
+          onKeyDown={() => {
             setActive(project.projectId);
             setSelectedProject(project.projectId);
           }}
@@ -38,4 +40,8 @@ export const Projects = ({ activeValue = true }) => {
       </li>
     ))
   );
+};
+
+Projects.propTypes = {
+  activeValue: PropTypes.bool,
 };
