@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import AlertContext from "../../context/alerts/alertContext";
 
 const CreateAcount = () => {
+  const alertContext = useContext(AlertContext);
+  const { alert, showAlert } = alertContext;
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -20,13 +24,34 @@ const CreateAcount = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (
+      name.trim() === "" ||
+      email.trim() === "" ||
+      password.trim() === "" ||
+      confirmPassword.trim() === ""
+    ) {
+      showAlert("All the fields are required", "alerta-error");
+      return;
+    }
+
+    if (password.length < 6) {
+      showAlert("Password must have at least 6 characters", "alerta-error");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showAlert("Passwords must be equals", "alerta-error");
+      return;
+    }
   };
 
   return (
     <div className="form-usuario">
+      {alert ? <p className={`alerta ${alert.category}`}>{alert.msg}</p> : null}
       <div className="contenedor-form sombra-dark">
         <h1>Create an account</h1>
-        <form onSubmit={onsubmit}>
+        <form onSubmit={onSubmit}>
           <div className="campo-form">
             <label htmlFor="name">Name</label>
             <input

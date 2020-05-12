@@ -24,7 +24,7 @@ const Login = () => {
     <div className="form-usuario">
       <div className="contenedor-form sombra-dark">
         <h1>Login</h1>
-        <form onSubmit={onsubmit}>
+        <form onSubmit={onSubmit}>
           <div className="campo-form">
             <label htmlFor="email">Email</label>
             <input
