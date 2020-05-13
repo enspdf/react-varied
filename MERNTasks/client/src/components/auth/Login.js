@@ -1,7 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AlertContext from "../../context/alerts/alertContext";
+import AuthContext from "../../context/authentication/authContext";
 
-const Login = () => {
+const Login = (props) => {
+  const alertContext = useContext(AlertContext);
+  const { alert, showAlert } = alertContext;
+
+  const authContext = useContext(AuthContext);
+  const { message, authenticated, login } = authContext;
+
+  useEffect(() => {
+    if (authenticated) {
+      props.history.push("/projects");
+    }
+
+    if (message) {
+      showAlert(message.msg, message.category);
+    }
+  }, [message, authenticated, props.history]);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -18,10 +36,20 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (email.trim() === "" || password.trim() === "") {
+      showAlert("All the fields are required", "alerta-error");
+      return;
+    }
+
+    login({ email, password });
   };
 
   return (
     <div className="form-usuario">
+      {alert ? (
+        <div className={`alerta ${alert.category}`}>{alert.msg}</div>
+      ) : null}
       <div className="contenedor-form sombra-dark">
         <h1>Login</h1>
         <form onSubmit={onSubmit}>

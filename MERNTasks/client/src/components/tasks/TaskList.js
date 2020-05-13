@@ -16,7 +16,7 @@ const TaskList = () => {
   const [currentProject] = project;
 
   const onClickDelete = () => {
-    deleteProject(currentProject.id);
+    deleteProject(currentProject._id);
   };
 
   return (
