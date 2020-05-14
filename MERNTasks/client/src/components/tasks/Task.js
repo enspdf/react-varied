@@ -4,7 +4,7 @@ import projectContext from "../../context/projects/projectContext";
 
 const Task = ({ task }) => {
   const tasksContext = useContext(taskContext);
-  const { deleteTask, getTasks, changeTaskStatus, currentTask } = tasksContext;
+  const { deleteTask, getTasks, editTask, currentTask } = tasksContext;
 
   const projectsContext = useContext(projectContext);
   const { project } = projectsContext;
@@ -12,8 +12,8 @@ const Task = ({ task }) => {
   const [currentProject] = project;
 
   const taskDelete = (id) => {
-    deleteTask(id);
-    getTasks(currentProject.id);
+    deleteTask(id, currentProject._id);
+    getTasks(currentProject._id);
   };
 
   const changeStatus = (task) => {
@@ -23,7 +23,7 @@ const Task = ({ task }) => {
       task.status = true;
     }
 
-    changeTaskStatus(task);
+    editTask(task);
   };
 
   const chooseTask = (task) => {
@@ -63,7 +63,7 @@ const Task = ({ task }) => {
         <button
           type="button"
           className="btn btn-secundario"
-          onClick={() => taskDelete(task.id)}
+          onClick={() => taskDelete(task._id)}
         >
           Delete
         </button>

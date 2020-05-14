@@ -33,7 +33,7 @@ exports.createTask = async (req, res) => {
 
 exports.getTasks = async (req, res) => {
   try {
-    const { projectId } = req.body;
+    const { projectId } = req.query;
     const project = await Project.findById(projectId);
 
     if (!project) {
@@ -44,7 +44,7 @@ exports.getTasks = async (req, res) => {
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const tasks = await Task.find({ projectId });
+    const tasks = await Task.find({ projectId }).sort({ created: -1 });
 
     res.status(200).json({ tasks });
   } catch (error) {
@@ -74,8 +74,8 @@ exports.updateTask = async (req, res) => {
 
     const newTask = {};
 
-    if (name) newTask.name = name;
-    if (status) newTask.status = status;
+    newTask.name = name;
+    newTask.status = status;
 
     task = await Task.findOneAndUpdate({ _id: req.params.id }, newTask, {
       new: true,
@@ -90,7 +90,7 @@ exports.updateTask = async (req, res) => {
 
 exports.deleteTask = async (req, res) => {
   try {
-    const { projectId } = req.body;
+    const { projectId } = req.query;
     const task = await Task.findById(req.params.id);
 
     if (!task) {

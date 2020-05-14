@@ -52,8 +52,7 @@ const TaskForm = () => {
     }
 
     if (taskSelected === null) {
-      task.projectId = currentProject.id;
-      task.state = false;
+      task.projectId = currentProject._id;
       addTask(task);
     } else {
       editTask(task);

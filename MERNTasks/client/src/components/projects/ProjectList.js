@@ -17,6 +17,7 @@ const ProjectList = () => {
     }
 
     getProjects();
+    // eslint-disable-next-line
   }, [message]);
 
   if (projects.length === 0)
