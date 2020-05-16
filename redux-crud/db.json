@@ -1,0 +1,14 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Orange Juice Edited",
+      "price": "100"
+    },
+    {
+      "id": 3,
+      "name": "Rib Eye 800g",
+      "price": "200"
+    }
+  ]
+}
