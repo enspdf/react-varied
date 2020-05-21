@@ -1,0 +1,23 @@
+{
+  "name": "product-hunt-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "babel-plugin-emotion": "^10.0.33",
+    "date-fns": "^2.14.0",
+    "firebase": "^7.14.4",
+    "firebase-admin": "^8.12.1",
+    "next": "9.4.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-firebase-file-uploader": "^2.4.3"
+  }
+}
