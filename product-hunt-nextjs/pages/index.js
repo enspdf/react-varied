@@ -4,7 +4,7 @@ import ProductDetails from "../components/layouts/ProductDetails";
 import useProducts from "../hooks/useProducts";
 
 const Home = () => {
-  const products = useProducts("created");
+  const { products } = useProducts("create");
 
   return (
     <div>

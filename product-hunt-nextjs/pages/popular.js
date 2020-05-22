@@ -4,7 +4,7 @@ import ProductDetails from "../components/layouts/ProductDetails";
 import useProducts from "../hooks/useProducts";
 
 const Popular = () => {
-  const products = useProducts("votes");
+  const { products } = useProducts("votes");
 
   return (
     <div>
