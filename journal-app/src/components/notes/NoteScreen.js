@@ -19,7 +19,7 @@ export const NoteScreen = () => {
         <div className="notes__image">
           <img
             src="https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="image"
+            alt=""
           />
         </div>
       </div>
