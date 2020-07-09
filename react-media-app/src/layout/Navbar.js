@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import logo from "../../logo.svg";
+import logo from "../logo.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -43,36 +44,36 @@ const Navbar = () => {
             : "hidden px-2 pt-2 pb-4 sm:flex sm:p-0"
         }
       >
-        <a
-          href="#"
+        <Link
+          to="/login"
           className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray800"
         >
           Login
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/signup"
           className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
         >
           Sign up
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/create"
           className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
         >
           +Add
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/profile/2"
           className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
         >
           Welcome, name
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          href="/signout"
           className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
         >
           Signout
-        </a>
+        </Link>
       </nav>
     </header>
   );
