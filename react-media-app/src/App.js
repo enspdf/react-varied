@@ -1,20 +1,23 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import CreateFeed from "./components/newfeed/CreateFeed";
+import SingleFeed from "./components/newfeed/SingleFeed";
+import Profile from "./components/profile/Profile";
 import Home from "./layout/Home";
 import Navbar from "./layout/Navbar";
-import Signup from "./components/auth/Signup";
-import Login from "./components/auth/Login";
-import SingleFeed from "./components/newfeed/SingleFeed";
-import CreateFeed from "./components/newfeed/CreateFeed";
-import Profile from "./components/profile/Profile";
 
 function App() {
   return (
     <>
       <Router>
+        <ToastContainer />
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import CommentForm from "../comment/commentForm";
 
 const SingleFeed = () => {
   return (
@@ -47,29 +48,7 @@ const SingleFeed = () => {
         </div>
         <div className="w-full sm:w-1/2 px-6">
           <div className="divide-y divide-gray-400">
-            <div className="text-center py-2">
-              <form className="bg-white rounded-lg pt-2">
-                <div className="flex flex-wrap -mx-3 mb-6">
-                  <div className="w-full md:w-full px-3 mb-2 mt-2">
-                    <textarea
-                      className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
-                      name="body"
-                      placeholder="Type Your Comment"
-                      required
-                    ></textarea>
-                  </div>
-                  <div className="w-full md:w-full flex items-start md:w-full px-3">
-                    <div className="-mr-1">
-                      <input
-                        type="submit"
-                        className="bg-green-500 text-white font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-green-600"
-                        value="Post Comment"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <CommentForm />
             <div className="py-2">
               <div className="flex bg-white shadow-lg rounded-lg">
                 <div className="flex items-start px-4 py-6">
