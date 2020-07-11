@@ -69,7 +69,7 @@ const Navbar = () => {
           Welcome, name
         </Link>
         <Link
-          href="/signout"
+          to="/signout"
           className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
         >
           Signout
