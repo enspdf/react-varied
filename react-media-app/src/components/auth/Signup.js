@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { signUpUser } from "../../Store/actions/user-actions";
 import LoadingSpinner from "../spinner/LoadingSpinner";
 
-const Signup = ({ isLoading, signup, authError }) => {
+const Signup = ({ isLoading, signup, signupError }) => {
   const [value, setValue] = useState();
   const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
   const handleChange = (e) => {
@@ -147,9 +147,9 @@ const Signup = ({ isLoading, signup, authError }) => {
                         {errors.email.message}
                       </p>
                     )}
-                    {authError && (
+                    {signupError && (
                       <p className="text-red-500 text-xs italic mt-2 ml-2">
-                        {authError}
+                        {signupError}
                       </p>
                     )}
                   </div>
@@ -225,7 +225,7 @@ const Signup = ({ isLoading, signup, authError }) => {
 const mapStateToProps = (state) => {
   return {
     isLoading: state.user.loading,
-    authError: state.user.authError,
+    signupError: state.user.signupError,
   };
 };
 

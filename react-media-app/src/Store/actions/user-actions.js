@@ -61,7 +61,47 @@ export const signUpUser = (data) => {
       })
       .catch((err) => {
         dispatch({ type: "STOP_LOADING" });
-        dispatch({ type: "AUTHERROR", payload: err.message });
+        dispatch({ type: "SIGNUP_ERROR", payload: err.message });
+        toast.error(err.message);
+      });
+  };
+};
+
+const saveToken = (user, dispatch) => {
+  const userToken = user.user.getIdToken();
+
+  userToken
+    .then((token) => {
+      const secretToken = JWT.sign({ user: user.user }, token);
+      localStorage.setItem("token", secretToken);
+    })
+    .then(() => {
+      toast.success("Signed in successfully", {
+        onClose: () => {
+          window.location.href = "/";
+        },
+      });
+    })
+    .then(() => {
+      dispatch({ type: "STOP_LOADING" });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const loginUser = (data) => {
+  return (dispatch) => {
+    dispatch({ type: "LOADING" });
+
+    const response = auth.signInWithEmailAndPassword(data.email, data.password);
+    response
+      .then((user) => {
+        saveToken(user, dispatch);
+      })
+      .catch((err) => {
+        dispatch({ type: "STOP_LOADING" });
+        dispatch({ type: "LOGIN_ERROR", payload: err.message });
         toast.error(err.message);
       });
   };
