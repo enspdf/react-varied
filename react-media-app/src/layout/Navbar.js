@@ -1,12 +1,23 @@
+import jwtDecode from "jwt-decode";
 import React, { useState } from "react";
-import logo from "../logo.svg";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+import logo from "../logo.svg";
+import { signout } from "../Store/actions/user-actions";
+
+const Navbar = ({ signout }) => {
   const [open, setOpen] = useState(false);
   const openMenu = () => {
     setOpen(!open);
   };
+
+  const token = localStorage.getItem("token");
+  let user;
+
+  if (token) {
+    user = jwtDecode(token);
+  }
 
   return (
     <header className="bg-gray-900 sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
@@ -46,39 +57,52 @@ const Navbar = () => {
             : "hidden px-2 pt-2 pb-4 sm:flex sm:p-0"
         }
       >
-        <Link
-          to="/login"
-          className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray800"
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
-        >
-          Sign up
-        </Link>
-        <Link
-          to="/create"
-          className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
-        >
-          +Add
-        </Link>
-        <Link
-          to="/profile/2"
-          className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
-        >
-          Welcome, name
-        </Link>
-        <Link
-          to="/signout"
-          className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
-        >
-          Signout
-        </Link>
+        {token ? (
+          <>
+            <Link
+              to="/create"
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+            >
+              <i className="fas fa-plus"></i>
+            </Link>
+            <Link
+              to="/profile/2"
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+            >
+              Welcome, {user.user.displayName}
+            </Link>
+            <button
+              onClick={signout}
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+            >
+              Signout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray800"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 sm:mt-0 sm:ml-2"
+            >
+              Sign up
+            </Link>
+          </>
+        )}
       </nav>
     </header>
   );
 };
 
-export default Navbar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signout: () => dispatch(signout()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

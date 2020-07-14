@@ -106,3 +106,19 @@ export const loginUser = (data) => {
       });
   };
 };
+
+export const signout = () => {
+  return (dispatch) => {
+    const response = auth.signOut();
+    response
+      .then(() => {
+        localStorage.removeItem("token");
+      })
+      .then(() => {
+        window.location.href = "/";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};

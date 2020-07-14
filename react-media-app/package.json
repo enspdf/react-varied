@@ -9,6 +9,8 @@
     "autoprefixer": "^9.8.4",
     "firebase": "^7.15.5",
     "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.27.0",
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
