@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      return json.status(400).json({ ok: false, msg: "User already exists" });
+      return res.status(400).json({ ok: false, msg: "User already exists" });
     }
 
     user = new User({ name, email });
@@ -40,13 +40,13 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return json.status(400).json({ ok: false, msg: "Invalid user" });
+      return res.status(400).json({ ok: false, msg: "Invalid user" });
     }
 
     const validPassword = bcrypt.compareSync(password, user.password);
 
     if (!validPassword) {
-      return json.status(400).json({ ok: false, msg: "Invalid user" });
+      return res.status(400).json({ ok: false, msg: "Invalid user" });
     }
 
     const token = await generateJWT(user._id, user.name);
