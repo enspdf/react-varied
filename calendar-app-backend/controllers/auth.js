@@ -63,7 +63,7 @@ const revalidateToken = async (req, res) => {
 
   const token = await generateJWT(uid, name);
 
-  res.json({ ok: true, token });
+  res.json({ ok: true, token, uid, name });
 };
 
 module.exports = {
