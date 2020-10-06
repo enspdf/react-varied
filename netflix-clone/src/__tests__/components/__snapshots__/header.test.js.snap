@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders the basic <Header /> with a background 1`] = `
+<div
+  class="header__Background-t8lkk2-0 bqcBCi"
+  data-testid="header-bg"
+>
+  <div
+    class="header__Container-t8lkk2-3 hlXfaY"
+  >
+    <p
+      class="header__Link-t8lkk2-5 bKpxrB"
+    >
+      Hello I am a link!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<Header /> renders the basic <Header /> without a background 1`] = `
+<div
+  class="header__Container-t8lkk2-3 hlXfaY"
+>
+  <p
+    class="header__Link-t8lkk2-5 fghlpF"
+  >
+    Hello I am a link!
+  </p>
+</div>
+`;
+
+exports[`<Header /> renders the full <Header> with a background 1`] = `
+<div
+  class="header__Background-t8lkk2-0 joKECs"
+  data-testid="header-bg"
+  src="joker1"
+>
+  <div
+    class="header__Container-t8lkk2-3 hlXfaY"
+  >
+    <div
+      class="header__Group-t8lkk2-1 jISMBf"
+    >
+      <p
+        class="header__Link-t8lkk2-5 fghlpF"
+      >
+        Series
+      </p>
+      <p
+        class="header__Link-t8lkk2-5 fghlpF"
+      >
+        Films
+      </p>
+    </div>
+    <div
+      class="header__Group-t8lkk2-1 jISMBf"
+    >
+      <div
+        class="header__Search-t8lkk2-7 fWTRcz"
+      >
+        <button
+          class="header__SearchIcon-t8lkk2-8 jnjWaq"
+          data-testid="search-click"
+        >
+          <img
+            alt="Search"
+            src="/images/icons/search.png"
+          />
+        </button>
+        <input
+          class="header__SearchInput-t8lkk2-10 iyDgjG"
+          data-testid="search-input"
+          placeholder="Search films and series"
+          value="Joker"
+        />
+      </div>
+      <div
+        class="header__Profile-t8lkk2-11 jDQPQi"
+      >
+        <button
+          class="header__Picture-t8lkk2-4 jJazWB"
+          src="/images/users//images/karl.png.png"
+        />
+        <div
+          class="header__Dropdown-t8lkk2-6 iidnvu"
+        >
+          <div
+            class="header__Group-t8lkk2-1 jISMBf"
+          >
+            <button
+              class="header__Picture-t8lkk2-4 jJazWB"
+              src="/images/users//images/karl.png.png"
+            />
+            <p
+              class="header__Link-t8lkk2-5 fghlpF"
+            >
+              Karl Hadwen
+            </p>
+          </div>
+          <div
+            class="header__Group-t8lkk2-1 jISMBf"
+          >
+            <p
+              class="header__Link-t8lkk2-5 fghlpF"
+            >
+              Sign out
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="header__Container-t8lkk2-3 header__Feature-t8lkk2-14 hlXfaY eASTN"
+  >
+    <p
+      class="header__FeatureCallOut-t8lkk2-16 iGcGBZ"
+    >
+      Watch Joker Now
+    </p>
+    <p
+      class="header__Text-t8lkk2-15 isVQbT"
+    >
+      Forever alone in a crowd...
+    </p>
+    <button
+      class="header__PlayButton-t8lkk2-9 jtWMfB"
+    >
+      Play
+    </button>
+  </div>
+</div>
+`;
