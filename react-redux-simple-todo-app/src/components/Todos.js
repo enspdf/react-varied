@@ -1,11 +1,9 @@
 import React from "react";
 import { List, IconButton, Icon, FlexboxGrid, Alert } from "rsuite";
-import { connect } from "react-redux";
-import { delTodo } from "../redux";
 
-const Todos = ({ dispatch, todos }) => {
+const Todos = ({ delTodo, todos }) => {
   const del = (todo) => {
-    dispatch(delTodo(todo));
+    delTodo(todo);
     Alert.info(`Deleted ${todo.text}`);
   };
 
@@ -35,8 +33,4 @@ const Todos = ({ dispatch, todos }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return { todos: state.todos };
-};
-
-export default connect(mapStateToProps)(Todos);
+export default Todos;

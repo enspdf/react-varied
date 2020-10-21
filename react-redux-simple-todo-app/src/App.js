@@ -18,14 +18,14 @@ import {
 } from "rsuite";
 import "./App.css";
 import { connect } from "react-redux";
-import { addTodo, ToDo } from "./redux";
+import { addTodo, ToDo, delTodo } from "./redux";
 import { generate } from "shortid";
 import Todos from "./components/Todos";
 
-const App = ({ dispatch }) => {
+const App = ({ addTodo, todos, delTodo }) => {
   const [state, setState] = useState({ txt: "" });
   const createTodo = () => {
-    dispatch(addTodo(new ToDo(generate(), state.txt)));
+    addTodo(state.txt);
     Alert.success(`Added A TODO text -> ${state.txt}`);
     setState({ txt: "" });
   };
@@ -66,7 +66,7 @@ const App = ({ dispatch }) => {
                 </Form>
               </Panel>
               <Divider />
-              <Todos />
+              <Todos todos={todos} delTodo={delTodo} />
             </FlexboxGrid.Item>
           </FlexboxGrid>
         </Content>
@@ -75,4 +75,15 @@ const App = ({ dispatch }) => {
   );
 };
 
-export default connect()(App);
+const mapStateToProps = (state, ownProps) => {
+  return { todos: state.todos };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    delTodo: (todo) => dispatch(delTodo(todo)),
+    addTodo: (txt) => dispatch(addTodo(new ToDo(generate(), txt))),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
