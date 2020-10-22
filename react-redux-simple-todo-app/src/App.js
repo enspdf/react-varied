@@ -18,7 +18,7 @@ import {
 } from "rsuite";
 import "./App.css";
 import { connect } from "react-redux";
-import { addTodo, ToDo, delTodo } from "./redux";
+import { addTodo, ToDo, delTodo, fetchPosts } from "./redux";
 import { generate } from "shortid";
 import Todos from "./components/Todos";
 
@@ -83,6 +83,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     delTodo: (todo) => dispatch(delTodo(todo)),
     addTodo: (txt) => dispatch(addTodo(new ToDo(generate(), txt))),
+    getPosts: () => dispatch(fetchPosts()),
   };
 };
 
