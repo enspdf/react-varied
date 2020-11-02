@@ -3,8 +3,10 @@ import { useParams, useHistory } from "react-router-dom";
 import useFetch from "./services/useFetch";
 import Spinner from "./Spinner";
 import PageNotFound from "./PageNotFound";
+import { useCart } from "./cartContext";
 
-export default function Detail({ addToCart }) {
+export default function Detail() {
+  const { dispatch } = useCart();
   const { id } = useParams();
   const history = useHistory();
   const [sku, setSku] = useState("");
@@ -32,7 +34,7 @@ export default function Detail({ addToCart }) {
           disabled={!sku}
           className="btn btn-primary"
           onClick={() => {
-            addToCart(id, sku);
+            dispatch({ type: "add", id, sku });
             history.push("/cart");
           }}
         >
