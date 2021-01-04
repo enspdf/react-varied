@@ -1,10 +1,13 @@
+import { ChakraProvider, CSSReset } from "@chakra-ui/react";
 import { AuthProvider } from "../hooks/useAuth";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </AuthProvider>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, createContext } from "react";
-import { auth, db } from "../config/firebase";
+import { auth, db, providers } from "../config/firebase";
 
 const AuthContext = createContext({
   user: {},
@@ -7,6 +7,9 @@ const AuthContext = createContext({
   signIn: () => {},
   signOut: () => {},
   sendPasswordResetEmail: () => {},
+  signInWithGoogle: () => {},
+  signInWithFacebook: () => {},
+  signInWithGithub: () => {},
 });
 
 const useAuthProvider = () => {
@@ -75,6 +78,37 @@ const useAuthProvider = () => {
     });
   };
 
+  const mapFirebaseUserToAuthUser = (user) => {
+    return {
+      username: user?.displayName,
+      email: user?.email,
+      uid: user?.uid,
+    };
+  };
+
+  const signInWithCustomProvider = (response) => {
+    const { username, email, uid } = mapFirebaseUserToAuthUser(response?.user);
+
+    createUser({ uid, email, name: username });
+    setUser(response?.user);
+    getUserAdditionalData(user);
+  };
+
+  const signInWithGoogle = () =>
+    auth
+      .signInWithPopup(providers.googleProvider)
+      .then(signInWithCustomProvider);
+
+  const signInWithFacebook = () =>
+    auth
+      .signInWithPopup(providers.facebookProvider)
+      .then(signInWithCustomProvider);
+
+  const signInWithGithub = () =>
+    auth
+      .signInWithPopup(providers.githubProvider)
+      .then(signInWithCustomProvider);
+
   const handleAuthStateChanged = (user) => {
     setUser(user);
 
@@ -94,7 +128,7 @@ const useAuthProvider = () => {
       const unsubscribe = db
         .collection("users")
         .doc(user.uid)
-        .onSnapshot((doc) => setUser(dog.data()));
+        .onSnapshot((doc) => setUser(doc.data()));
 
       return () => unsubscribe();
     }
@@ -106,6 +140,9 @@ const useAuthProvider = () => {
     signIn,
     signOut,
     sendPasswordResetEmail,
+    signInWithGoogle,
+    signInWithFacebook,
+    signInWithGithub,
   };
 };
 

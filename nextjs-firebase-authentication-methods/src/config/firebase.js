@@ -17,12 +17,14 @@ if (!firebase?.apps?.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-const app = firebase.app();
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+  facebookProvider: new firebase.auth.FacebookAuthProvider(),
+  githubProvider: new firebase.auth.GithubAuthProvider(),
+};
 const auth = firebase.auth();
 const db = firebase.firestore();
 const now = firebase.firestore.Timestamp.now();
 const storage = firebase.storage();
 
-export { auth, db, now, storage };
-
-console.log(app?.name ? "Firebase Working :)" : "Firebase Not Working :(");
+export { providers, auth, db, now, storage };

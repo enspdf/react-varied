@@ -1,22 +1,23 @@
-import Link from "next/link";
 import ResetPasswordForm from "../components/ResetPasswordForm";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 const ResetPasswordPage = () => {
   return (
-    <>
-      <div>
-        <h2>Reset password</h2>
-        <p>
-          Did't forgot?{" "}
-          <Link href="/login">
-            <a href="#!">Login</a>
-          </Link>
-        </p>
-      </div>
-      <div>
+    <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
+      <Box
+        p={4}
+        borderWidth={1}
+        px={4}
+        width="full"
+        maxW="600px"
+        borderRadius={4}
+        textAlign="center"
+        boxShadow="lg"
+      >
+        <Heading>Reset password</Heading>
         <ResetPasswordForm />
-      </div>
-    </>
+      </Box>
+    </Flex>
   );
 };
 
