@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@storybook/addon-controls": "^6.1.15",
+    "html-react-parser": "^1.2.3",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
