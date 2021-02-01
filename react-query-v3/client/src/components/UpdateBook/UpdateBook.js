@@ -1,19 +1,17 @@
-import { useParams, useHistory } from "react-router-dom";
-import { useMutation, useQuery } from "react-query";
-import { getBook, updateBook } from "../../api";
-import { Container, BookForm } from "../shared";
-import { Box, Flex, Heading } from "rebass";
 import Loader from "react-loader-spinner";
+import { useHistory, useParams } from "react-router-dom";
+import { Box, Flex, Heading } from "rebass";
+import { updateBook } from "../../api";
+import { BookForm, Container } from "../shared";
+import { useFetchBook } from "./useFetchBook";
+import { useUpdateBook } from "./useUpdateBook";
 
 export const UpdateBook = () => {
   const { id } = useParams();
   const history = useHistory();
-  const { data, error, isLoading, isError } = useQuery(
-    ["books", { id }],
-    getBook
-  );
+  const { data, error, isLoading, isError } = useFetchBook(id);
 
-  const { mutateAsync, isLoading: isMutating } = useMutation(updateBook);
+  const { mutateAsync, isLoading: isMutating } = useUpdateBook(updateBook);
 
   const onFormSubmit = async (data) => {
     await mutateAsync({ ...data, id });
@@ -24,7 +22,7 @@ export const UpdateBook = () => {
   if (isLoading) {
     return (
       <Container>
-        <Flex py="5" justifyContent="center">
+        <Flex data-testid="loader" py="5" justifyContent="center">
           <Loader type="ThreeDots" color="#ccc" height={30} />
         </Flex>
       </Container>
