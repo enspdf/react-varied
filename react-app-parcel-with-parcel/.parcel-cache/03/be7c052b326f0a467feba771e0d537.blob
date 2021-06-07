@@ -1,0 +1,25 @@
+var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _react = require('react');
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactDom = require('react-dom');
+  var _App = require('./App');
+  var _AppDefault = _parcelHelpers.interopDefault(_App);
+  var _jsxFileName = "/Users/sebastianhiguita/Desktop/react/react-varied/react-app-parcel-with-parcel/index.js";
+  _reactDom.render(/*#__PURE__*/_reactDefault.default.createElement(_AppDefault.default, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4,
+      columnNumber: 8
+    }
+  }), document.getElementById('app'));
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
