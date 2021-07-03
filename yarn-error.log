@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/local/bin/node /Users/sebastianhiguita/.yarn/bin/yarn.js init @vitejs/app
+
+PATH: 
+  /Users/sebastianhiguita/.sdkman/candidates/micronaut/current/bin:/Users/sebastianhiguita/Documents/flutter/bin:/Users/sebastianhiguita/.yarn/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  16.0.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/sebastianhiguita/.yarn/lib/cli.js:137009:13)
+      at Interface.emit (node:events:365:28)
+      at Interface._ttyWrite (node:readline:1007:16)
+      at ReadStream.onkeypress (node:readline:271:10)
+      at ReadStream.emit (node:events:365:28)
+      at emitKeys (node:internal/readline/utils:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:readline:1281:36)
+      at ReadStream.emit (node:events:365:28)
+      at addChunk (node:internal/streams/readable:314:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
