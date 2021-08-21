@@ -28,7 +28,15 @@ const COLUMNS = [
 import "#root/styles.scss";
 
 const Root = () => {
-  const { headers, rows } = useTable({ columns: COLUMNS, data: mockData });
+  const {
+    headers,
+    pagination: { pageNumber, nextPage, previousPage, totalPages },
+    rows,
+  } = useTable({
+    columns: COLUMNS,
+    data: mockData,
+    pagination: { pageSize: 2 },
+  });
 
   return (
     <div>
@@ -41,19 +49,6 @@ const Root = () => {
           </tr>
         </thead>
         <tbody>
-          {/* {mockData.map(({ dateOfBirth, favouriteFood, id, name }) => (
-            <tr key={id}>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>
-                {format(
-                  parse(dateOfBirth, "yyyy-MM-dd", new Date()),
-                  "do MMM yyyy"
-                )}
-              </td>
-              <td>{favouriteFood}</td>
-            </tr>
-          ))} */}
           {rows.map((row, index) => (
             <tr key={index}>
               {row.cells.map((cell, index) => (
@@ -63,6 +58,13 @@ const Root = () => {
           ))}
         </tbody>
       </table>
+      <div className="pagination">
+        <button onClick={previousPage}>&lt;</button>
+        <span>
+          Page {pageNumber} of {totalPages}
+        </span>
+        <button onClick={nextPage}>&gt;</button>
+      </div>
     </div>
   );
 };

@@ -22,3 +22,12 @@ table {
     padding: 1rem;
   }
 }
+
+.pagination {
+  margin-top: 1rem;
+  zoom: 1.5;
+
+  > span {
+    margin: 0 1rem;
+  }
+}
