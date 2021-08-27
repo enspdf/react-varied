@@ -5,13 +5,15 @@ import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import productsReducer from "./features/productSlice";
+import productsReducer, { productsFetch } from "./features/productSlice";
 
 const store = configureStore({
   reducer: {
     products: productsReducer,
   },
 });
+
+store.dispatch(productsFetch());
 
 ReactDOM.render(
   <React.StrictMode>
