@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
@@ -10,6 +11,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
