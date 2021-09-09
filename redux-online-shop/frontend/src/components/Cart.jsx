@@ -61,7 +61,7 @@ const Cart = () => {
             ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-cart">Clear Cart</button>
+            <button className="clear-btn">Clear Cart</button>
             <div className="cart-checkout">
               <div className="subtotal">
                 <span>Subtotal</span>
