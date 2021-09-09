@@ -8,7 +8,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import productsReducer, { productsFetch } from "./features/productSlice";
-import cartReducer from "./features/cartSlice";
+import cartReducer, { getTotals } from "./features/cartSlice";
 import { productsApi } from "./features/productsApi";
 
 const store = configureStore({
@@ -22,6 +22,7 @@ const store = configureStore({
 });
 
 store.dispatch(productsFetch());
+store.dispatch(getTotals());
 
 ReactDOM.render(
   <React.StrictMode>
