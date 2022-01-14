@@ -1,0 +1,41 @@
+Arguments: 
+  /usr/local/bin/node /Users/sebastianhiguita/.yarn/bin/yarn.js add -D hardhat @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethereum ethers
+
+PATH: 
+  /Users/sebastianhiguita/Documents/flutter/bin:/Users/sebastianhiguita/.yarn/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/sebastianhiguita/.sdkman/candidates/micronaut/current/bin
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  16.0.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@nomiclabs%2fhardhat-ethereum: Not found
+      at Request.params.callback [as _callback] (/Users/sebastianhiguita/.yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/Users/sebastianhiguita/.yarn/lib/cli.js:140749:22)
+      at Request.emit (node:events:365:28)
+      at Request.<anonymous> (/Users/sebastianhiguita/.yarn/lib/cli.js:141721:10)
+      at Request.emit (node:events:365:28)
+      at IncomingMessage.<anonymous> (/Users/sebastianhiguita/.yarn/lib/cli.js:141643:12)
+      at Object.onceWrapper (node:events:471:28)
+      at IncomingMessage.emit (node:events:377:35)
+      at endReadableNT (node:internal/streams/readable:1312:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "smart_contract",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
